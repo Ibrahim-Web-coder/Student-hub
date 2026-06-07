@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc --noEmit",
-    "db:generate": "supabase gen types typescript --project-id YOUR_PROJECT_ID > lib/supabase/database.types.ts"
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -41,6 +40,7 @@
     "react": "^19.0.0",
     "react-day-picker": "^9.4.0",
     "react-dom": "^19.0.0",
+    "resend": "^4.0.1",
     "react-hook-form": "^7.53.2",
     "recharts": "^2.13.3",
     "tailwind-merge": "^2.5.4",

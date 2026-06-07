@@ -42,23 +42,7 @@ export async function POST(request: Request) {
 
     if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
-    // Send email notification if user has email notifications enabled
-    if (body.user_id && body.type !== 'general') {
-      const { data: user } = await supabase
-        .from('users')
-        .select('email, notification_email')
-        .eq('id', body.user_id)
-        .single();
-
-      if (user?.email && user?.notification_email !== false) {
-        const { sendEmail } = await import('@/lib/email');
-        await sendEmail({
-          to: user.email,
-          subject: body.title,
-          html: `<p>${body.message}</p>`,
-        });
-      }
-    }
+   
 
     return NextResponse.json({ data }, { status: 201 });
   } catch (error: any) {
